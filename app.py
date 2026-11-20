@@ -969,7 +969,7 @@ def inject_custom_css():
 
         .player-cta-button {
             background: #d97706;
-            color: #06070a;
+            color: #06070a !important;
             text-align: center;
             font-weight: 600;
             font-size: 0.74rem;
@@ -977,8 +977,16 @@ def inject_custom_css():
             padding: 0.55rem;
             border-radius: 4px;
             margin-top: 0.55rem;
-            cursor: default;
+            cursor: pointer;
+            text-decoration: none !important;
+            display: block;
             box-shadow: 0 2px 8px rgba(217, 119, 6, 0.25);
+            transition: all 0.15s ease;
+        }
+        .player-cta-button:hover {
+            background: #f59e0b;
+            color: #06070a !important;
+            transform: translateY(-1px);
         }
 
         /* ── Pacing Timeline Strip ───────────────────────────────── */
@@ -1818,7 +1826,7 @@ def render_promo_results():
                                 <div style="color: #ededed; font-size: 0.78rem; line-height: 1.4;">"{safe_html(first_seg_text[:85])}..."</div>
                                 <div style="margin-top: 0.35rem; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: #9da3af;">Audio: Tension swell ➔ Cut hit</div>
                             </div>
-                            <div class="player-cta-button">Watch Episode Now</div>
+                            <a href="https://kukufm.com" target="_blank" class="player-cta-button" title="Simulated Social Ad CTA — In production ads on TikTok/Reels, this deep-links directly to the episode on Kuku FM">Watch Episode Now ↗</a>
                             <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: #9da3af; margin-top: 0.4rem; padding: 0 0.2rem;">
                                 <span>Cut: {dur_sec}s</span>
                                 <span>24-bit / 48kHz</span>
