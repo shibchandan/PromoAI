@@ -17,6 +17,7 @@ import io
 import json
 import os
 import html
+import textwrap
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -1787,7 +1788,7 @@ def render_promo_results():
                 dur_sec = int(c.estimated_duration_seconds or 35)
                 cut_ts = f"00:{dur_sec:02d}"
 
-                st.markdown(
+                phone_html = textwrap.dedent(
                     f"""
                     <div style="text-align: center; margin-bottom: 0.35rem; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--text-muted);">
                         9:16 Video cutting monitor
@@ -1796,7 +1797,6 @@ def render_promo_results():
                         <div class="safe-zone-overlay">
                             <span class="safe-zone-tag">Social Safe Zone</span>
                         </div>
-                        
                         <div>
                             <div class="player-status-bar">
                                 <div><span class="player-rec-dot">● REC</span> 00:00:15</div>
@@ -1805,19 +1805,17 @@ def render_promo_results():
                             </div>
                             <div class="player-hook-tag">0–3s Hook Window</div>
                         </div>
-                        
                         <div style="text-align: center; margin: 1rem 0; font-size: 0.85rem; color: #ededed; position: relative; z-index: 1;">
                             <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: #d97706; text-transform: uppercase; letter-spacing: 0.05em;">Microdrama Promo Cut</div>
                             <h3 style="color: #ededed; margin: 0.35rem 0; font-size: 0.98rem; line-height: 1.3; font-weight: 600;">{safe_html(c.title)}</h3>
                         </div>
-
                         <div style="position: relative; z-index: 1;">
                             <div class="player-subtitle-card">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
                                     <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.64rem; color: #38bdf8; font-weight: 500;">Burned-in Subtitle:</span>
                                     <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: #9da3af;">SYNCED</span>
                                 </div>
-                                <div style="color: #ededed; font-size: 0.78rem; line-height: 1.4;\">\"{safe_html(first_seg_text[:85])}...\"</div>
+                                <div style="color: #ededed; font-size: 0.78rem; line-height: 1.4;">"{safe_html(first_seg_text[:85])}..."</div>
                                 <div style="margin-top: 0.35rem; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: #9da3af;">Audio: Tension swell ➔ Cut hit</div>
                             </div>
                             <div class="player-cta-button">Watch Episode Now</div>
@@ -1827,9 +1825,9 @@ def render_promo_results():
                             </div>
                         </div>
                     </div>
-                    """,
-                    unsafe_allow_html=True,
-                )
+                    """
+                ).strip()
+                st.markdown(phone_html, unsafe_allow_html=True)
 
             st.markdown("---")
 
