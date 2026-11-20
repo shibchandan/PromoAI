@@ -1,0 +1,48 @@
+# Environment variables & secrets - never commit
+.env
+*.env
+!.env.example
+.streamlit/secrets.toml
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pytest & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Output files generated during runs
+outputs/*.json
+outputs/*.csv
+outputs/*.md
+
+# User-uploaded archives (keep sample screenplays in input/screenplay/ tracked for demo)
+input/*.zip
+
+# Agent skills & local assistant files
+.agents/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary & logs
+*.tmp
+*.log
+tmp/
