@@ -3,27 +3,30 @@
 > **A production-ready prototype for Kuku AI Generalist Campus Placement Assignment (Problem 1: Find the Promos).**  
 > Analyzes multi-episode vertical microdrama screenplays and automatically identifies, validates, and ranks high-engagement 20–60 second promotional moments (ads).
 
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
-[![Framework](https://img.shields.io/badge/Frontend-Streamlit-red.svg)](https://streamlit.io/)
-[![AI Provider](https://img.shields.io/badge/AI-Google%20Gemini%20API-orange.svg)](https://aistudio.google.com/)
-[![Tests](https://img.shields.io/badge/Tests-44%2F44%20Passing-brightgreen.svg)]()
-[![Architecture](https://img.shields.io/badge/Architecture-Modular%20Monolith-purple.svg)]()
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-promoai11.streamlit.app-2ea44f?style=for-the-badge&logo=streamlit)](https://promoai11.streamlit.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-shibchandan%2FPromoAI-blue?style=for-the-badge&logo=github)](https://github.com/shibchandan/PromoAI)
+[![Tests](https://img.shields.io/badge/Tests-44%2F44%20Passing-brightgreen.svg?style=for-the-badge)](https://github.com/shibchandan/PromoAI)
+
+**Author / Candidate:** Shib Chandan Mistry  
+**Live Application:** [https://promoai11.streamlit.app/](https://promoai11.streamlit.app/)  
+**Source Code:** [https://github.com/shibchandan/PromoAI](https://github.com/shibchandan/PromoAI)
 
 ---
 
 ## 📌 Table of Contents
 
 1. [Problem Statement & Overview](#-problem-statement--overview)
-2. [Key Features](#-key-features)
-3. [Technology Stack](#-technology-stack)
-4. [Architecture & Project Structure](#-architecture--project-structure)
-5. [Deterministic Scoring Formula](#-deterministic-scoring-formula)
-6. [Installation & Setup (Windows)](#-installation--setup-windows)
-7. [Running the Application](#-running-the-application)
-8. [Demonstration Workflow (Interview Ready)](#-demonstration-workflow-interview-ready)
-9. [Automated Testing Suite](#-automated-testing-suite)
-10. [Security & Verification Guidelines](#-security--verification-guidelines)
-11. [Limitations & Future Improvements](#-limitations--future-improvements)
+2. [Key Features & Studio Innovations](#-key-features--studio-innovations)
+3. [Submission Package Structure](#-submission-package-structure)
+4. [Technology Stack](#-technology-stack)
+5. [Architecture & Project Structure](#-architecture--project-structure)
+6. [Deterministic Scoring Formula](#-deterministic-scoring-formula)
+7. [Installation & Setup (Windows)](#-installation--setup-windows)
+8. [Running the Application](#-running-the-application)
+9. [Demonstration Workflow (Interview Ready)](#-demonstration-workflow-interview-ready)
+10. [Automated Testing Suite](#-automated-testing-suite)
+11. [Security & Verification Guidelines](#-security--verification-guidelines)
+12. [Limitations & Future Improvements](#-limitations--future-improvements)
 
 ---
 
@@ -45,16 +48,41 @@ Microdramas are fast-paced, vertical-format serialized shows (typically 1–2 mi
 
 ---
 
-## ✨ Key Features
+## ✨ Key Features & Studio Innovations
 
 - **Safe Multi-File Ingestion:** Accepts individual `.txt` files or `.zip` archives. Includes strict zip-slip path traversal guards, executable file filtering, and encoding detection.
-- **Screenplay Parser & Timestamp Extractor:** Parses complex screenplay formats containing scene headers, character emotions, dialogue quotes, action notes, camera directions, and real timestamps (`MM:SS.cc`).
-- **Semantic Promo Generation:** Synthesizes single-episode and multi-episode dramatic arcs with strong 3-second opening hooks, central conflicts, and unresolved cliffhanger endings.
-- **Deterministic Explainable Ranking:** AI scores raw criteria (0–10), but Python strictly computes the weighted composite score and executes sorting. AI never manipulates the final rank.
-- **Screenplay Source Verification:** Automatically scans the original screenplay text to verify that every quoted excerpt actually exists, flagging any unsupported claims or duration deviations.
+- **Hollywood Screenplay Reader:** Formatted scene sluglines (INT/EXT), actor emotions as indented parentheticals `(whispering in terror)`, dialogue blocks with quote hairlines, and 10-point algorithmic scene intensity meters.
+- **Interactive 9:16 Video Cutting Monitor:** Mobile ad simulator displaying TikTok / Instagram Reels social safe-zone overlays, camera timecode counters, burned-in subtitles, and stereo audio mastering specs (`24-bit / 48kHz`).
+- **Dynamic Pacing Timeline:** Scaled real-time visualization showing 0–3s hook attention lock, escalating confrontation body, and unresolved cliffhanger cutoff points.
+- **Deterministic Explainable Ranking:** AI scores raw criteria (0–10), but Python strictly computes the weighted composite score ($S = 0.25H + 0.20E + 0.25C + 0.15K + 0.15P$). AI never manipulates the final rank.
+- **Screenplay Source Verification:** Automatically scans original screenplay text to verify that every quoted dialogue excerpt exists verbatim, eliminating hallucinations.
 - **Human Quality Review:** Content editors can review candidates, modify titles/hooks/cliffhangers, add comments for video editing teams, and approve or reject promos.
-- **Standardized Multi-Format Export:** Downloads full structured JSON, CSV summary tables, or comprehensive Markdown pitch reports.
-- **Graceful Offline / Demo Mode:** Seamlessly operates without an API key using realistic synthetic sample data and deterministic rule-based analysis.
+- **Standardized Multi-Format Export:** Downloads full structured JSON schema, CSV summary tables, and comprehensive Markdown pitch reports.
+
+---
+
+## 📦 Submission Package Structure
+
+The repository includes the official submission bundle ready for evaluation under `PromoAI_Submission/`:
+
+```
+PromoAI_Submission/
+│
+├── 01_Solution_Document/
+│   └── PromoAI_Solution.pdf       # 7-page comprehensive technical & editorial solution paper
+│
+├── 02_Raw_Outputs/
+│   ├── promo_results.json         # Standardized JSON output matching assignment spec
+│   ├── promo_results.csv          # Spreadsheet-ready tabular summary of candidates
+│   └── analysis_report.pdf        # Executive editorial analysis report in PDF
+│
+├── 03_Demo/
+│   ├── PromoAI_Walkthrough.mp4    # HD presentation video illustrating the complete workflow
+│   └── WALKTHROUGH_SCRIPT.md      # 2-minute step-by-step recording guide & voiceover script
+│
+└── 04_Project_Links/
+    └── README.txt                 # Project links, local setup, test status, and author details
+```
 
 ---
 
