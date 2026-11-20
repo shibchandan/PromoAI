@@ -1874,6 +1874,30 @@ def render_quality_review():
             height=80,
         )
 
+        if selected.segments:
+            st.markdown("##### Screenplay segments & verbatim source quotes")
+            for s_idx, seg in enumerate(selected.segments):
+                seg_label = seg.segment_type.capitalize() if seg.segment_type else f"Segment {s_idx + 1}"
+                time_range = f"{seg.start_time or 'N/A'} – {seg.end_time or 'N/A'}"
+                st.markdown(
+                    f"""
+                    <div style="padding: 10px 14px; margin-bottom: 8px; border-radius: 6px; background: var(--surface-secondary); border: 1px solid var(--border-subtle);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                            <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.05em; text-transform: uppercase;">
+                                {seg_label} • {seg.episode} ({seg.scene_reference or 'SCENE'})
+                            </span>
+                            <span style="font-size: 0.72rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">
+                                {time_range}
+                            </span>
+                        </div>
+                        <div style="font-size: 0.82rem; color: var(--text-primary); font-style: italic;">
+                            "{seg.source_text}"
+                        </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+
     with col2:
         st.markdown("#### Editorial decision")
         st.write(f"Status: **{selected.review_status.value.capitalize()}**")
@@ -1889,6 +1913,8 @@ def render_quality_review():
             selected.cliffhanger = new_cliff
             selected.description = new_desc
             selected.reviewer_comment = comment
+            if st.session_state.episodes:
+                validate_candidate(selected, st.session_state.episodes)
             st.success(f"Candidate {selected.promo_id} marked as approved.")
             st.rerun()
 
@@ -1908,17 +1934,20 @@ def render_quality_review():
             selected.cliffhanger = new_cliff
             selected.description = new_desc
             selected.reviewer_comment = comment
+            if st.session_state.episodes:
+                validate_candidate(selected, st.session_state.episodes)
             st.success("Revisions saved successfully.")
             st.rerun()
 
         st.markdown("---")
-        st.markdown("##### Source text verification")
+        st.markdown("##### Anti-hallucination verification")
         if selected.validation_flags:
             st.error(f"{len(selected.validation_flags)} issue(s) detected:")
             for f in selected.validation_flags:
                 st.caption(f"• {f}")
+            st.caption("ℹ️ *The LLM paraphrased or adapted this segment text. Editors can verify, edit, or approve the cut directly above.*")
         else:
-            st.success("Source quotes and timestamps verified against screenplay.")
+            st.success("Source quotes and timestamps verified against raw screenplay.")
 
 
 # ---------------------------------------------------------------------------

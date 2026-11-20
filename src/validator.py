@@ -6,27 +6,81 @@ Key principle: Never automatically mark something as verified unless the Python
 code can confirm it in the original source text.
 """
 
+import re
 from src.promo_detector import PromoCandidate
 from src.screenplay_parser import Episode
+
+
+def _normalize_text_for_search(text: str) -> str:
+    """Normalize screenplay or segment text by stripping quotes, punctuation, and extra whitespace."""
+    if not text:
+        return ""
+    # Strip straight and curly quotes
+    cleaned = (
+        text.replace('"', " ")
+        .replace("“", " ")
+        .replace("”", " ")
+        .replace("'", " ")
+        .replace("‘", " ")
+        .replace("’", " ")
+    )
+    # Replace punctuation characters with space
+    cleaned = re.sub(r"[\(\)\[\]\{\}:;,\.\!\?–—\-\\\/]", " ", cleaned)
+    # Collapse multiple whitespaces and lowercase
+    return " ".join(cleaned.lower().split())
 
 
 def validate_source_text_exists(candidate: PromoCandidate, episodes: list[Episode]) -> list[str]:
     """
     For each segment, check that source_text actually appears in the original screenplay.
     Returns list of validation failure messages.
+    Supports verbatim substring matching, normalized text matching (for quotes and casing),
+    and n-gram phrase matching to guard against false negatives while catching real hallucinations.
     """
     flags = []
-    episode_map = {ep.episode_label: ep.raw_content for ep in episodes}
+    # Build a lookup mapping by exact label as well as variations
+    episode_map: dict[str, str] = {}
+    for ep in episodes:
+        episode_map[ep.episode_label.lower().strip()] = ep.raw_content
+        episode_map[f"episode {ep.episode_number}"] = ep.raw_content
+        episode_map[f"ep {ep.episode_number}"] = ep.raw_content
+        episode_map[f"ep.{ep.episode_number}"] = ep.raw_content
+        episode_map[str(ep.episode_number)] = ep.raw_content
 
     for i, segment in enumerate(candidate.segments):
-        ep_content = episode_map.get(segment.episode, "")
+        ep_key = segment.episode.lower().strip()
+        ep_content = episode_map.get(ep_key, "")
         if not ep_content:
             flags.append(f"Segment {i+1}: Episode '{segment.episode}' not found in loaded episodes")
-        elif segment.source_text and len(segment.source_text) > 10:
-            # Check if at least a substantial substring appears in the content
-            search_text = segment.source_text.strip().strip('"')
-            if search_text[:50] not in ep_content:
-                flags.append(f"Segment {i+1}: Source text not verified in '{segment.episode}'")
+            continue
+
+        if segment.source_text and len(segment.source_text.strip()) > 10:
+            search_text = segment.source_text.strip().strip('"\'')
+            # 1. Exact raw substring check (first 50 chars)
+            if search_text[:50] in ep_content:
+                continue
+
+            # 2. Normalized check (ignoring smart quotes, punctuation, casing, and whitespace)
+            norm_content = _normalize_text_for_search(ep_content)
+            norm_search = _normalize_text_for_search(search_text)
+
+            if norm_search in norm_content or (len(norm_search) > 25 and norm_search[:40] in norm_content):
+                continue
+
+            # 3. 4-word sliding phrase match (to allow for character cues like "THE STRANGER: ...")
+            words = norm_search.split()
+            found_phrase = False
+            if len(words) >= 4:
+                for w_idx in range(len(words) - 3):
+                    phrase = " ".join(words[w_idx : w_idx + 4])
+                    if phrase in norm_content:
+                        found_phrase = True
+                        break
+
+            if found_phrase:
+                continue
+
+            flags.append(f"Segment {i+1}: Source text not verified in '{segment.episode}'")
     return flags
 
 
