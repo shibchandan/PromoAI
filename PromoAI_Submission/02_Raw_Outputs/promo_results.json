@@ -1,0 +1,323 @@
+{
+  "project": "PromoAI",
+  "version": "1.0",
+  "generated_at": "2026-11-19T20:02:06.506321+00:00",
+  "is_demo_data": true,
+  "total_episodes": 5,
+  "total_candidates": 5,
+  "scoring_weights": {
+    "hook_strength": 0.25,
+    "emotional_impact": 0.2,
+    "cliffhanger_strength": 0.25,
+    "story_coherence": 0.15,
+    "promo_suitability": 0.15
+  },
+  "episodes_summary": [
+    {
+      "episode_label": "Episode 1",
+      "filename": "episode-001-Episode 1671703.txt"
+    },
+    {
+      "episode_label": "Episode 2",
+      "filename": "episode-002-Episode 1671704.txt"
+    },
+    {
+      "episode_label": "Episode 3",
+      "filename": "episode-003-Episode 1671705.txt"
+    },
+    {
+      "episode_label": "Episode 4",
+      "filename": "episode-004-Episode 1671706.txt"
+    },
+    {
+      "episode_label": "Episode 5",
+      "filename": "episode-005-Episode 1671707.txt"
+    }
+  ],
+  "promos": [
+    {
+      "promo_id": "PROMO_001",
+      "title": "The Altar Betrayal",
+      "description": "Lady Juliana arrives in her late mother's vintage gown for her dream wedding, only to discover her fiancé Gerald holding her sister's hand at the altar. A devastating public humiliation turns into an unyielding vow of defiance.",
+      "hook": "Juliana steps radiant through cathedral doors into church silence—until Matriarch steps forward: 'You should turn around, Juliana.'",
+      "segments": [
+        {
+          "episode": "Episode 1",
+          "source_text": "You should turn around, Juliana.",
+          "scene_reference": "SCENE 01",
+          "start_time": "00:11.30",
+          "end_time": "00:13.10",
+          "timestamp_status": "available",
+          "segment_type": "hook"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "Because he is marrying me.",
+          "scene_reference": "SCENE 01",
+          "start_time": "00:39.10",
+          "end_time": "00:41.20",
+          "timestamp_status": "available",
+          "segment_type": "body"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "You let me believe I was walking toward my husband!",
+          "scene_reference": "SCENE 01",
+          "start_time": "00:57.00",
+          "end_time": "01:00.00",
+          "timestamp_status": "available",
+          "segment_type": "body"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "I changed my mind.",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:00.10",
+          "end_time": "01:01.80",
+          "timestamp_status": "available",
+          "segment_type": "cliffhanger"
+        }
+      ],
+      "estimated_duration_seconds": 38,
+      "duration_estimation_method": "sum of segment timestamps",
+      "emotional_impact": "",
+      "main_conflict": "Altar betrayal by betrothed Gerald with the full cruel conspiracy of her own family",
+      "cliffhanger": "Gerald coldly states 'I changed my mind' as Juliana's eyes harden from tears into icy vengeance.",
+      "why_it_works": "Explosive 3-second hook that subverts the traditional wedding entrance. Visceral family betrayal, razor-sharp dialogue, and high visual contrast between white gown and gold dress.",
+      "is_multi_episode": false,
+      "scores": {
+        "hook_strength": 9.8,
+        "emotional_impact": 9.9,
+        "cliffhanger_strength": 9.7,
+        "story_coherence": 9.6,
+        "promo_suitability": 9.8
+      },
+      "final_score": 9.77,
+      "ai_confidence": "high",
+      "review_status": "pending",
+      "reviewer_comment": "",
+      "is_demo": true,
+      "validation_flags": []
+    },
+    {
+      "promo_id": "PROMO_003",
+      "title": "The Stranger's Proposal",
+      "description": "Cast aside by Gerald and ordered seized by guards at her family's command, Juliana's ruin is interrupted by an imposing scarred warrior who draws steel—and drops to one knee.",
+      "hook": "Juliana is dragged toward cathedral guards—until heavy doors blow open and a scarred stranger cuts them down with lethal grace.",
+      "segments": [
+        {
+          "episode": "Episode 1",
+          "source_text": "I cannot marry a woman of such plainness and low value... when Clarissa is the true jewel of the county.",
+          "scene_reference": "SCENE 01",
+          "start_time": "02:04.20",
+          "end_time": "02:11.20",
+          "timestamp_status": "available",
+          "segment_type": "hook"
+        },
+        {
+          "episode": "Episode 3",
+          "source_text": "You stole my wedding.",
+          "scene_reference": "SCENE 01",
+          "start_time": "00:08.80",
+          "end_time": "00:10.80",
+          "timestamp_status": "available",
+          "segment_type": "body"
+        },
+        {
+          "episode": "Episode 3",
+          "source_text": "I didn't steal what was never truly yours.",
+          "scene_reference": "SCENE 01",
+          "start_time": "00:13.80",
+          "end_time": "00:16.30",
+          "timestamp_status": "available",
+          "segment_type": "body"
+        }
+      ],
+      "estimated_duration_seconds": 52,
+      "duration_estimation_method": "multi-episode narrative pacing",
+      "emotional_impact": "",
+      "main_conflict": "Abandonment by high society vs intervention by a lethal, honorable stranger",
+      "cliffhanger": "The mysterious warrior kneels before the ruined bride in front of the horrified congregation.",
+      "why_it_works": "Multi-episode structure proves the hero's fall and unexpected savior arc. The ultimate romance/revenge hook that drives 80%+ click-through rates in vertical ads.",
+      "is_multi_episode": true,
+      "scores": {
+        "hook_strength": 9.9,
+        "emotional_impact": 9.7,
+        "cliffhanger_strength": 9.9,
+        "story_coherence": 9.3,
+        "promo_suitability": 9.7
+      },
+      "final_score": 9.74,
+      "ai_confidence": "high",
+      "review_status": "pending",
+      "reviewer_comment": "",
+      "is_demo": true,
+      "validation_flags": []
+    },
+    {
+      "promo_id": "PROMO_005",
+      "title": "Low Value Bride",
+      "description": "Gerald publicly proclaims Juliana of 'plainness and low value' before high society, igniting the defiant spark that sets off the entire microdrama.",
+      "hook": "Gerald towers over Juliana: 'You have nothing to offer me anymore.'",
+      "segments": [
+        {
+          "episode": "Episode 1",
+          "source_text": "So that is what I was worth to you?",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:57.00",
+          "end_time": "01:59.00",
+          "timestamp_status": "available",
+          "segment_type": "hook"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "You have nothing to offer me anymore.",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:59.80",
+          "end_time": "02:02.30",
+          "timestamp_status": "available",
+          "segment_type": "body"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "I cannot marry a woman of such plainness and low value... when Clarissa is the true jewel of the county.",
+          "scene_reference": "SCENE 01",
+          "start_time": "02:04.20",
+          "end_time": "02:11.20",
+          "timestamp_status": "available",
+          "segment_type": "cliffhanger"
+        }
+      ],
+      "estimated_duration_seconds": 44,
+      "duration_estimation_method": "sum of segment timestamps",
+      "emotional_impact": "",
+      "main_conflict": "Arrogant noble discarding loyal betrothed for beauty and wealth",
+      "cliffhanger": "Juliana's tearful blue eyes harden into cold defiance as string drone swells.",
+      "why_it_works": "High-contrast lines with strong moral clarity. Viewers instantly want to binge watch the revenge arc.",
+      "is_multi_episode": false,
+      "scores": {
+        "hook_strength": 9.5,
+        "emotional_impact": 9.5,
+        "cliffhanger_strength": 9.6,
+        "story_coherence": 9.4,
+        "promo_suitability": 9.6
+      },
+      "final_score": 9.53,
+      "ai_confidence": "high",
+      "review_status": "pending",
+      "reviewer_comment": "",
+      "is_demo": true,
+      "validation_flags": []
+    },
+    {
+      "promo_id": "PROMO_002",
+      "title": "Sister in Gold",
+      "description": "Clarissa gloats in her gold gown as she steals her sister's husband and societal standing. A venomous sibling rivalry reaches its breaking point before the entire high society congregation.",
+      "hook": "Clarissa smirks beside the altar candles: 'I am the daughter they choose.'",
+      "segments": [
+        {
+          "episode": "Episode 1",
+          "source_text": "Because he is marrying me.",
+          "scene_reference": "SCENE 01",
+          "start_time": "00:39.10",
+          "end_time": "00:41.20",
+          "timestamp_status": "available",
+          "segment_type": "hook"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "People change their minds, sister.",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:06.50",
+          "end_time": "01:08.80",
+          "timestamp_status": "available",
+          "segment_type": "body"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "You are the daughter people tolerate because they have to. I am the daughter they choose.",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:47.50",
+          "end_time": "01:53.00",
+          "timestamp_status": "available",
+          "segment_type": "cliffhanger"
+        }
+      ],
+      "estimated_duration_seconds": 32,
+      "duration_estimation_method": "sum of segment timestamps",
+      "emotional_impact": "",
+      "main_conflict": "Favored cruel sister vs rejected, pure-hearted protagonist",
+      "cliffhanger": "Clarissa's chilling declaration cuts to Juliana refusing to break down before the congregation.",
+      "why_it_works": "Classic microdrama antagonist archetype. Short, punchy lines that trigger intense outrage and viral engagement on TikTok/Reels.",
+      "is_multi_episode": false,
+      "scores": {
+        "hook_strength": 9.4,
+        "emotional_impact": 9.6,
+        "cliffhanger_strength": 9.5,
+        "story_coherence": 9.5,
+        "promo_suitability": 9.6
+      },
+      "final_score": 9.51,
+      "ai_confidence": "high",
+      "review_status": "pending",
+      "reviewer_comment": "",
+      "is_demo": true,
+      "validation_flags": []
+    },
+    {
+      "promo_id": "PROMO_004",
+      "title": "The Father's Silence",
+      "description": "Humiliated and abandoned by Gerald, Juliana drops to her knees in front of her elderly father's pew, begging him to speak—only to face stone-cold family betrayal.",
+      "hook": "Juliana on her knees in tears: 'Father... please look at me!' Her father stares ahead in cold silence.",
+      "segments": [
+        {
+          "episode": "Episode 1",
+          "source_text": "Tell them this is a mistake.",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:21.40",
+          "end_time": "01:23.60",
+          "timestamp_status": "available",
+          "segment_type": "hook"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "Father... please look at me.",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:26.00",
+          "end_time": "01:28.90",
+          "timestamp_status": "available",
+          "segment_type": "body"
+        },
+        {
+          "episode": "Episode 1",
+          "source_text": "You have embarrassed this family long enough.",
+          "scene_reference": "SCENE 01",
+          "start_time": "01:32.10",
+          "end_time": "01:35.50",
+          "timestamp_status": "available",
+          "segment_type": "cliffhanger"
+        }
+      ],
+      "estimated_duration_seconds": 35,
+      "duration_estimation_method": "sum of segment timestamps",
+      "emotional_impact": "",
+      "main_conflict": "Daughter seeking parental protection vs family casting her out for status",
+      "cliffhanger": "Matriarch proclaims her an embarrassment as Juliana realizes she has no family left.",
+      "why_it_works": "Extremely relatable emotional wound. Focuses on the heartbreak of family loyalty discarded for greed.",
+      "is_multi_episode": false,
+      "scores": {
+        "hook_strength": 9.2,
+        "emotional_impact": 9.7,
+        "cliffhanger_strength": 9.3,
+        "story_coherence": 9.5,
+        "promo_suitability": 9.1
+      },
+      "final_score": 9.36,
+      "ai_confidence": "high",
+      "review_status": "pending",
+      "reviewer_comment": "",
+      "is_demo": true,
+      "validation_flags": []
+    }
+  ]
+}
